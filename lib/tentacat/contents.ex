@@ -9,14 +9,14 @@ defmodule Tentacat.Contents do
 
   ## Example
 
-      Tentacat.Contents.readme "elixir-lang", "elixir", "ref-name"
-      Tentacat.Contents.readme "elixir-lang", "elixir", "ref-name", client
+      Tentacat.Contents.readme "elixir-lang", "elixir",
+      Tentacat.Contents.readme "elixir-lang", "elixir", client
 
   More info at: https://developer.github.com/v3/repos/contents/#get-the-readme
   """
-  @spec readme(binary, binary, binary, Client.t) :: Tentacat.response
-  def readme(owner, repo, ref, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/readme", client, [{:ref, ref}]
+  @spec readme(binary, binary, Client.t) :: Tentacat.response
+  def readme(owner, repo, client \\ %Client{}) do
+    get "repos/#{owner}/#{repo}/readme", client
   end
 
   @doc """
